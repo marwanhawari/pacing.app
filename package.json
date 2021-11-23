@@ -1,0 +1,37 @@
+{
+  "name": "pacing.app",
+  "version": "0.0.1",
+  "description": "A website to calculate your running pace.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "format": "prettier --write --ignore-unknown '{tests,interview.js}/**/*{.js,.ts,.html,.css}'",
+    "lint": "eslint interview.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marwanhawari/pacing.app.git"
+  },
+  "keywords": [
+    "website",
+    "webapp",
+    "running",
+    "pace"
+  ],
+  "author": "Marwan Hawari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marwanhawari/pacing.app/issues"
+  },
+  "homepage": "https://github.com/marwanhawari/pacing.app#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.2",
+    "prettier": "^2.4.1"
+  }
+}
