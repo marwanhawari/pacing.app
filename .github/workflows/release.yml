@@ -23,5 +23,5 @@ jobs:
       run: |
         npm ci
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        echo '{{ secrets.CNAME }}' > ./src/CNAME && npm run publish -- -u "${{ secrets.GIT_USER }} <${{ secrets.GIT_EMAIL }}>"
+        echo '${{ secrets.CNAME }}' > ./src/CNAME && npm run publish -- -u "${{ secrets.GIT_USER }} <${{ secrets.GIT_EMAIL }}>"
     
