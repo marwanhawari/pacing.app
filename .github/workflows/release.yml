@@ -23,5 +23,5 @@ jobs:
       run: |
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
         npm ci
-        npm run publish -- -u "${{ secrets.GIT_USER }} ${{ secrets.GIT_EMAIL }}"
+        npm run publish -- -u "${{ secrets.GIT_USER }} <${{ secrets.GIT_EMAIL }}>"
     
