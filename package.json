@@ -4,7 +4,7 @@
   "description": "A website to calculate your running pace.",
   "main": "src/index.js",
   "scripts": {
-    "format": "prettier --write --ignore-unknown '{tests,src}/**/*{.js,.ts,.html,.css}'",
+    "format": "prettier --write --ignore-unknown '{tests,src}/**/*{.js,.ts,.html,.css,.json}'",
     "lint": "eslint src",
     "prepare": "husky install",
     "publish": "gh-pages -d src"
