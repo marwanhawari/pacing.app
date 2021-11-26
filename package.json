@@ -1,35 +1,35 @@
 {
-  "name": "pacing.app",
-  "version": "0.0.1",
-  "description": "A website to calculate your running pace.",
-  "main": "src/index.js",
-  "scripts": {
-    "format": "prettier --write --ignore-unknown '{tests,src}/**/*{.js,.ts,.html,.css,.json}'",
-    "lint": "eslint src",
-    "prepare": "husky install",
-    "publish": "gh-pages -d src"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/marwanhawari/pacing.app.git"
-  },
-  "keywords": [
-    "website",
-    "webapp",
-    "running",
-    "pace"
-  ],
-  "author": "Marwan Hawari",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/marwanhawari/pacing.app/issues"
-  },
-  "homepage": "https://github.com/marwanhawari/pacing.app#readme",
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "gh-pages": "^3.2.3",
-    "husky": "^7.0.2",
-    "prettier": "^2.4.1"
-  }
+    "name": "pacing.app",
+    "version": "0.0.1",
+    "description": "A website to calculate your running pace.",
+    "main": "src/index.js",
+    "scripts": {
+        "format": "prettier --write --ignore-unknown '{tests,src}/**/*{.js,.ts,.html,.css,.json}'",
+        "lint": "eslint src",
+        "prepare": "husky install && husky add .husky/pre-commit 'npm run format' && husky add .husky/pre-commit 'npm run lint'",
+        "publish": "gh-pages -d src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/marwanhawari/pacing.app.git"
+    },
+    "keywords": [
+        "website",
+        "webapp",
+        "running",
+        "pace"
+    ],
+    "author": "Marwan Hawari",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/marwanhawari/pacing.app/issues"
+    },
+    "homepage": "https://github.com/marwanhawari/pacing.app#readme",
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "gh-pages": "^3.2.3",
+        "husky": "^7.0.2",
+        "prettier": "^2.4.1"
+    }
 }
