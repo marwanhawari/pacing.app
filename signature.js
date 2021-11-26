@@ -1,8 +1,8 @@
-const mhSignatureElement = document.querySelector("#mhSignature");
+const mhSignatureElement = document.querySelector("#mh-signature");
 
-const div = document.createElement("div");
-div.setAttribute("id", "signature-container");
-div.innerHTML = `
+const mhSignatureChild = document.createElement("div");
+mhSignatureChild.setAttribute("id", "signature-container");
+mhSignatureChild.innerHTML = `
     <style>
         #signature-container {
             display: flex;
@@ -61,8 +61,8 @@ div.innerHTML = `
     </svg>
 `;
 
-div.addEventListener("click", () => {
+mhSignatureChild.addEventListener("click", () => {
     window.open("https://www.github.com/marwanhawari");
 });
 
-mhSignatureElement.append(div);
+mhSignatureElement.append(mhSignatureChild);
