@@ -5,3 +5,36 @@
 h1 {
     color: blue;
 }
+
+.signature-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+svg {
+    fill-rule: nonzero;
+    clip-rule: evenodd;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 10%;
+    height: auto;
+    padding-left: 0.5rem;
+}
+
+svg:hover {
+    cursor: pointer;
+}
+
+#signature {
+    stroke-dasharray: 3625;
+    stroke-dashoffset: 3625;
+    animation: sign 4s ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
