@@ -21,10 +21,66 @@
     </head>
     <body>
         <h1>pacing.app</h1>
-        <a href="https://github.com/marwanhawari/pacing.app">GitHub</a>
-        <h1>pacing.app</h1>
-        <input type="datetime" name="time" id="time" />
-        <br />
+        <div class="time">
+            <input
+                type="number"
+                name="time-hours"
+                id="time-hours"
+                maxlength="2"
+                inputmode="decimal"
+            />:
+            <input
+                type="number"
+                name="time-minutes"
+                id="time-minutes"
+                maxlength="2"
+                inputmode="decimal"
+            />:
+            <input
+                type="number"
+                name="time-seconds"
+                id="time-seconds"
+                maxlength="2"
+                inputmode="decimal"
+            />
+        </div>
+        <div class="distance">
+            <input
+                type="text"
+                name="pace-hours"
+                id="distance-input"
+                maxlength="2"
+                inputmode="decimal"
+                value="10"
+            />
+            <select name="distance-unit" id="distance-unit">
+                <option value="Miles">Miles</option>
+                <option value="Kilometers">Kilometers</option>
+            </select>
+        </div>
+        <div class="pace">
+            <input
+                type="text"
+                name="pace-hours"
+                id="pace-hours"
+                maxlength="2"
+                inputmode="decimal"
+            />:
+            <input
+                type="text"
+                name="pace-minutes"
+                id="pace-minutes"
+                maxlength="2"
+                inputmode="decimal"
+            />:
+            <input
+                type="text"
+                name="pace-seconds"
+                id="pace-seconds"
+                maxlength="2"
+                inputmode="decimal"
+            />
+        </div>
         <div id="mh-signature"></div>
     </body>
 </html>
