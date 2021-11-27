@@ -2,4 +2,5 @@
 2. ~~Make distance adjustable~~
 3. ~~Add tests~~
 3. Convert between metric/imperial
+3. Make sure user can only enter values between 0-59
 4. Add styling
