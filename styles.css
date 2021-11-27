@@ -16,3 +16,7 @@ input[type="number"] {
 h1 {
     color: blue;
 }
+
+input {
+    text-align: right;
+}
