@@ -10,7 +10,7 @@ const server = app.listen(PORT, () =>
 );
 
 app.get("/close", (req, res) => {
-    res.send("Closing..");
+    res.send("Closing...");
     server.close();
     process.exit(0);
 });
