@@ -37,149 +37,45 @@ function calculateTimeFromPace(pace, distance) {
     return convertFromSeconds(totalSeconds);
 }
 
+function updateDOM(metric, inputChildren, outputChildren, distanceInput) {
+    // Convert the Hr/Min/Sec to total Sec
+    let totalConvertedSeconds = convertToSeconds(
+        ...inputChildren.map((child) => child.value)
+    );
+    // Calculate the Hr/Min/Sec for the pace
+    let calculatedChildren;
+    if (metric == "pace") {
+        calculatedChildren = calculatePaceFromTime(
+            totalConvertedSeconds,
+            distanceInput.value
+        );
+    } else if (metric == "time") {
+        calculatedChildren = calculateTimeFromPace(
+            totalConvertedSeconds,
+            distanceInput.value
+        );
+    }
+    // Actually modify the values in the DOM
+    for (let i = 0; i < calculatedChildren.length; i++) {
+        outputChildren[i].value = calculatedChildren[i];
+    }
+}
+
 document.addEventListener("input", (event) => {
     if (distanceInput.value == 0) {
         return;
     }
-    // console.log(event.target.parentElement.className == "distance");
     let targetParentElement = event.target.parentElement;
     if (
         targetParentElement.className == "distance" ||
         targetParentElement.className == "time"
     ) {
-        updatePace();
+        updateDOM("pace", timeChildren, paceChildren, distanceInput);
     } else if (targetParentElement.className == "pace") {
-        updateTime();
+        updateDOM("time", paceChildren, timeChildren, distanceInput);
     }
 });
 
-function updatePace() {
-    // Convert the Hr/Min/Sec to total Sec
-    let totalTimeSeconds = convertToSeconds(
-        ...timeChildren.map((child) => child.value)
-    );
-    // Calculate the Hr/Min/Sec for the pace
-    let calculatedPace = calculatePaceFromTime(
-        totalTimeSeconds,
-        distanceInput.value
-    );
-    // Actually modify the values in the DOM
-    for (let i = 0; i < calculatedPace.length; i++) {
-        paceChildren[i].value = calculatedPace[i];
-    }
-}
-
-function updateTime() {
-    // Convert the Hr/Min/Sec to total Sec
-    let totalPaceSeconds = convertToSeconds(
-        ...paceChildren.map((child) => child.value)
-    );
-    // Calculate the Hr/Min/Sec for the time
-    let calculatedTime = calculateTimeFromPace(
-        totalPaceSeconds,
-        distanceInput.value
-    );
-    // Actually modify the values in the DOM
-    for (let i = 0; i < calculatedTime.length; i++) {
-        timeChildren[i].value = calculatedTime[i];
-    }
-}
-
-// // dTime, constant distance, calc pace
-// time.addEventListener("input", () => {
-//     if (distanceInput.value == 0) {
-//         return;
-//     }
-//     let totalTimeSeconds = convertToSeconds(
-//         ...timeChildren.map((child) => child.value)
-//     );
-//     let calculatedPace = calculatePaceFromTime(
-//         totalTimeSeconds,
-//         distanceInput.value
-//     );
-//     for (let i = 0; i < calculatedPace.length; i++) {
-//         paceChildren[i].value = calculatedPace[i];
-//     }
-// });
-
-// // dDistance, constant time, calc pace
-// distance.addEventListener("input", () => {
-//     if (distanceInput.value == 0) {
-//         return;
-//     }
-//     let totalTimeSeconds = convertToSeconds(
-//         ...timeChildren.map((child) => child.value)
-//     );
-//     let calculatedPace = calculatePaceFromTime(
-//         totalTimeSeconds,
-//         distanceInput.value
-//     );
-//     for (let i = 0; i < calculatedPace.length; i++) {
-//         paceChildren[i].value = calculatedPace[i];
-//     }
-// });
-
+// dTime, constant distance, calc pace
+// dDistance, constant time, calc pace
 // dPace, constant distance, calc time
-// pace.addEventListener("input", () => {
-//     if (distanceInput.value == 0) {
-//         return;
-//     }
-//     let totalPaceSeconds = convertToSeconds(
-//         ...paceChildren.map((child) => child.value)
-//     );
-//     let calculatedTime = calculateTimeFromPace(
-//         totalPaceSeconds,
-//         distanceInput.value
-//     );
-//     for (let i = 0; i < calculatedTime.length; i++) {
-//         if (calculatedTime[i] == NaN) {
-//             return;
-//         }
-//         timeChildren[i].value = calculatedTime[i];
-//     }
-// });
-
-// document.addEventListener("input", (event) => {
-//     if (event.target.matches("input")) {
-//         let totalTime = getTotalTime(
-//             timeHours.value,
-//             timeMinutes.value,
-//             timeSeconds.value
-//         );
-//         console.log(totalTime);
-//         let [calcPaceHours, calcPaceMinutes, calcPaceSeconds] = calculatePace(
-//             totalTime,
-//             distanceInput.value
-//         );
-//         console.log([calcPaceHours, calcPaceMinutes, calcPaceSeconds]);
-//         paceHours.value = calcPaceHours;
-//         paceMinutes.value = calcPaceMinutes;
-//         paceSeconds.value = calcPaceSeconds;
-//     }
-// });
-
-// function getTime(children) {
-//     let [hours, minutes, seconds] = [...children];
-
-//     let totalSeconds = hours * 3600 + minutes * 60 + seconds;
-
-//     return totalSeconds;
-// }
-
-// function addChangeListener(element) {
-//     element.addEventListener("change", () => {
-//         console.log(element.value);
-//     });
-// }
-
-// let timeChildren = Array.from(time.children);
-// timeChildren.forEach((child) => {
-//     addChangeListener(child);
-// });
-// let timeChildrenTotal = getTime(timeChildren);
-// console.log(timeChildrenTotal);
-
-// let paceChildren = Array.from(pace.children);
-// paceChildren.forEach((child) => {
-//     addChangeListener(child);
-// });
