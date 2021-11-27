@@ -1,0 +1,10 @@
+{
+    "baseUrl": "http://localhost:8080",
+    "defaultCommandTimeout": 5000,
+    "fixturesFolder": false,
+    "pluginsFile": false,
+    "screenshotOnRunFailure": false,
+    "supportFile": false,
+    "supportFolder": false,
+    "video": false
+}

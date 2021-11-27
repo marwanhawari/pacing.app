@@ -75,7 +75,3 @@ document.addEventListener("input", (event) => {
         updateDOM("time", paceChildren, timeChildren, distanceInput);
     }
 });
-
-// dTime, constant distance, calc pace
-// dDistance, constant time, calc pace
-// dPace, constant distance, calc time

@@ -2,4 +2,4 @@
 
 # Install the required packages
 npm install
-npm run prepare
+npm run pre-commit
