@@ -14,6 +14,21 @@ function divmod(numerator, denominator) {
     return [Math.floor(numerator / denominator), numerator % denominator];
 }
 
+function pad(number, size) {
+    number = number.toString();
+    while (number.length < size) {
+        number = "0" + number;
+    }
+    return number;
+}
+
+function limitInputLength(inputValue, maxLength) {
+    if (inputValue.length > maxLength) {
+        inputValue = inputValue.slice(0, maxLength);
+    }
+    return inputValue;
+}
+
 function convertToSeconds(hours, minutes, seconds) {
     let totalSeconds = hours * 3600 + minutes * 60 + +seconds;
     return totalSeconds;
@@ -27,12 +42,12 @@ function convertFromSeconds(totalSeconds) {
 
 function calculatePaceFromTime(time, distance) {
     let totalSeconds = time / distance;
-    return convertFromSeconds(totalSeconds);
+    return convertFromSeconds(totalSeconds.toFixed(0));
 }
 
 function calculateTimeFromPace(pace, distance) {
     let totalSeconds = pace * distance;
-    return convertFromSeconds(totalSeconds);
+    return convertFromSeconds(totalSeconds.toFixed(0));
 }
 
 function convertDistanceUnits(value, to) {
@@ -71,7 +86,7 @@ function updateDOM(metric, inputChildren, outputChildren, distanceInputValue) {
     }
     // Actually modify the values in the DOM
     for (let i = 0; i < calculatedChildren.length; i++) {
-        outputChildren[i].value = calculatedChildren[i];
+        outputChildren[i].value = pad(calculatedChildren[i], 2);
     }
 }
 
@@ -80,8 +95,19 @@ document.addEventListener("input", (event) => {
     let distanceUnitValue = distanceUnit.value;
     let paceUnitValue = paceUnit.value;
 
+    // Input validation
     if (distanceInputValue == 0) {
         return;
+    }
+
+    let targetParentElement = event.target.parentElement;
+
+    if (
+        targetParentElement.className == "time" ||
+        (targetParentElement.className == "pace" &&
+            event.target.id != "pace-unit")
+    ) {
+        event.target.value = limitInputLength(event.target.value, 2);
     }
 
     // Check if distance unit is km
@@ -89,11 +115,8 @@ document.addEventListener("input", (event) => {
         distanceInputValue,
         distanceUnitValue
     );
-
     // Check if pace unit is min/km
     distanceInputValue = convertPaceUnits(distanceInputValue, paceUnitValue);
-
-    let targetParentElement = event.target.parentElement;
 
     if (event.target.id == "pace-unit") {
         updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
