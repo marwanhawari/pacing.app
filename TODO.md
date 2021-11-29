@@ -4,4 +4,5 @@
 3. Convert between metric/imperial
 3. Input validation
     * Make sure user can only enter values between 0-59
+    * Round everything to 2 decimal points
 4. Add styling
