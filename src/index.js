@@ -70,14 +70,7 @@ function convertDistanceUnits(value, to) {
 //     }
 // }
 
-function updateDOM(
-    metric,
-    inputChildren,
-    outputChildren,
-    distanceInputValue,
-    distanceUnitValue,
-    updatedDistanceUnit
-) {
+function updateDOM(metric, inputChildren, outputChildren, distanceInputValue) {
     // Convert the Hr/Min/Sec to total Sec
     let totalConvertedSeconds = convertToSeconds(
         ...inputChildren.map((child) => child.value)
@@ -87,16 +80,12 @@ function updateDOM(
     if (metric == "pace") {
         calculatedChildren = calculatePaceFromTime(
             totalConvertedSeconds,
-            distanceInputValue,
-            distanceUnitValue,
-            updatedDistanceUnit
+            distanceInputValue
         );
     } else if (metric == "time") {
         calculatedChildren = calculateTimeFromPace(
             totalConvertedSeconds,
-            distanceInputValue,
-            distanceUnitValue,
-            updatedDistanceUnit
+            distanceInputValue
         );
     }
     // Actually modify the values in the DOM
@@ -157,44 +146,18 @@ document.addEventListener("input", (event) => {
     let targetParentElement = event.target.parentElement;
 
     if (event.target.id == "distance-unit") {
-        distanceUnitValue = distanceUnit.value;
-        // distanceInputValue = convertDistanceUnits(
-        //     distanceInputValue,
-        //     distanceUnitValue
-        // );
         console.log("du- " + distanceUnitValue);
-        updateDOM(
-            "pace",
-            timeChildren,
-            paceChildren,
-            distanceInputValue,
-            distanceUnitValue,
-            true
-        );
+        updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
     } else if (
         (targetParentElement.className == "distance" ||
             targetParentElement.className == "time") &&
         event.target.id != "distance-unit"
     ) {
         console.log("distance/time- " + distanceUnitValue);
-        updateDOM(
-            "pace",
-            timeChildren,
-            paceChildren,
-            distanceInputValue,
-            distanceUnitValue,
-            false
-        );
+        updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
     } else if (targetParentElement.className == "pace") {
         console.log("pace- " + distanceUnitValue);
-        updateDOM(
-            "time",
-            paceChildren,
-            timeChildren,
-            distanceInputValue,
-            distanceUnitValue,
-            false
-        );
+        updateDOM("time", paceChildren, timeChildren, distanceInputValue);
     }
 });
 
