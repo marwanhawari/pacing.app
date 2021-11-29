@@ -17,7 +17,7 @@
             src="https://cdn.jsdelivr.net/gh/marwanhawari/mh-signature/src/mh-signature.js"
             defer
         ></script>
-        <script type="module" src="index.js" defer></script>
+        <script src="index.js" defer></script>
     </head>
     <body>
         <h1>pacing.app</h1>
@@ -53,8 +53,8 @@
                 value="10"
             />
             <select name="distance-unit" id="distance-unit">
-                <option value="Miles">Miles</option>
-                <option value="Kilometers">Kilometers</option>
+                <option value="miles">miles</option>
+                <option value="kilometers">kilometers</option>
             </select>
         </div>
         <div class="pace">
@@ -79,6 +79,10 @@
                 maxlength="2"
                 inputmode="decimal"
             />
+            <select name="pace-unit" id="pace-unit">
+                <option value="/mile">/mile</option>
+                <option value="/kilometer">/kilometer</option>
+            </select>
         </div>
         <div id="mh-signature"></div>
     </body>
