@@ -17,7 +17,7 @@
             src="https://cdn.jsdelivr.net/gh/marwanhawari/mh-signature/src/mh-signature.js"
             defer
         ></script>
-        <script type="module" src="index.js" defer></script>
+        <script src="index.js" defer></script>
     </head>
     <body>
         <h1>pacing.app</h1>
@@ -26,59 +26,57 @@
                 type="number"
                 name="time-hours"
                 id="time-hours"
-                maxlength="2"
                 inputmode="decimal"
             />:
             <input
                 type="number"
                 name="time-minutes"
                 id="time-minutes"
-                maxlength="2"
                 inputmode="decimal"
             />:
             <input
                 type="number"
                 name="time-seconds"
                 id="time-seconds"
-                maxlength="2"
                 inputmode="decimal"
             />
         </div>
         <div class="distance">
             <input
-                type="text"
+                type="number"
                 name="distance-input"
                 id="distance-input"
                 inputmode="decimal"
                 value="10"
             />
             <select name="distance-unit" id="distance-unit">
-                <option value="Miles">Miles</option>
-                <option value="Kilometers">Kilometers</option>
+                <option value="miles">miles</option>
+                <option value="kilometers">kilometers</option>
             </select>
         </div>
         <div class="pace">
             <input
-                type="text"
+                type="number"
                 name="pace-hours"
                 id="pace-hours"
-                maxlength="2"
                 inputmode="decimal"
             />:
             <input
-                type="text"
+                type="number"
                 name="pace-minutes"
                 id="pace-minutes"
-                maxlength="2"
                 inputmode="decimal"
             />:
             <input
-                type="text"
+                type="number"
                 name="pace-seconds"
                 id="pace-seconds"
-                maxlength="2"
                 inputmode="decimal"
             />
+            <select name="pace-unit" id="pace-unit">
+                <option value="/mile">/mile</option>
+                <option value="/kilometer">/kilometer</option>
+            </select>
         </div>
         <div id="mh-signature"></div>
     </body>
