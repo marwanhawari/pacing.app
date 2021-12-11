@@ -10,7 +10,7 @@
         "dev": "nodemon server/server.js",
         "start": "nohup node server/server.js > /dev/null 2>&1 &",
         "test": "npm run start && cypress run && curl http://localhost:8080/close",
-        "publish": "gh-pages -d src"
+        "release": "gh-pages -d src"
     },
     "repository": {
         "type": "git",
