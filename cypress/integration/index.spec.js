@@ -7,11 +7,11 @@ describe("pacing.app tests", () => {
 
     it("Make sure the time, distance, and pace elements exist", () => {
         cy.get(".time").should("have.length", 1);
-        cy.get(".time").children().should("have.length", 3);
+        cy.get(".time").children().should("have.length", 5);
         cy.get(".distance").should("have.length", 1);
         cy.get(".distance").children().should("have.length", 2);
         cy.get(".pace").should("have.length", 1);
-        cy.get(".pace").children().should("have.length", 4);
+        cy.get(".pace").children().should("have.length", 6);
     });
 
     it("Input a time", () => {
@@ -78,7 +78,7 @@ describe("pacing.app tests", () => {
         cy.get("#pace-minutes").should("have.value", "17");
         cy.get("#pace-seconds").should("have.value", "53");
 
-        cy.get("#pace-unit").select("/kilometer");
+        cy.get("#pace-unit").select("per kilometer");
 
         cy.get("#pace-hours").should("have.value", "00");
         cy.get("#pace-minutes").should("have.value", "11");

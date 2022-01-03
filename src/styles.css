@@ -1,6 +1,11 @@
+:root {
+    --global-background: hsl(240, 11%, 96%);
+}
+
 /* Global styling */
 * {
     font-family: "Outfit", sans-serif;
+    background-color: var(--global-background);
 }
 
 /* Hide the arrows on the number inputs */
@@ -13,10 +18,98 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
-h1 {
-    color: blue;
+#title {
+    background: linear-gradient(80deg, #42d392, #647eff);
+    /* background: linear-gradient(
+        80deg,
+        #f06844,
+        #ee4c54,
+        #d45e95,
+        #9c6ca6,
+        #6583c1
+    ); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    /* Animate gradient background */
+    background-size: 200% auto;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.triple-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 input {
+    all: unset;
+    grid-column: 2/3;
+    background-color: hsl(240, 11%, 98%);
+    border-color: hsl(0, 0%, 0%);
+    border-style: solid;
+    border-width: 0.15rem;
     text-align: right;
+    /* font-size: 1.5rem; */
+    /* padding: 0.5rem; */
+    outline: none;
+    transition: box-shadow 0.15s linear;
+}
+
+input:focus {
+    box-shadow: 0px 0px 4px 0.5px #42d392;
+    transition: box-shadow 0.125s linear;
+}
+
+input::placeholder {
+    opacity: 0.35;
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+select {
+    outline: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.body-content {
+    flex: 1 auto;
+}
+
+#mh-signature {
+    padding-top: 3rem;
+    padding-bottom: 0.5rem;
+    flex: auto 0;
 }
