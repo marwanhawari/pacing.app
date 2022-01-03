@@ -20,64 +20,79 @@
         <script src="index.js" defer></script>
     </head>
     <body>
-        <h1>pacing.app</h1>
-        <div class="time">
-            <input
-                type="number"
-                name="time-hours"
-                id="time-hours"
-                inputmode="decimal"
-            />:
-            <input
-                type="number"
-                name="time-minutes"
-                id="time-minutes"
-                inputmode="decimal"
-            />:
-            <input
-                type="number"
-                name="time-seconds"
-                id="time-seconds"
-                inputmode="decimal"
-            />
+        <div class="body-content">
+            <div class="main-content">
+                <h1 id="title">pacing.app</h1>
+                <div class="time triple-number">
+                    <input
+                        type="number"
+                        name="time-hours"
+                        id="time-hours"
+                        inputmode="decimal"
+                        placeholder="hr"
+                    />
+                    <span class="colon">:</span>
+                    <input
+                        type="number"
+                        name="time-minutes"
+                        id="time-minutes"
+                        inputmode="decimal"
+                        placeholder="min"
+                    />
+                    <span class="colon">:</span>
+                    <input
+                        type="number"
+                        name="time-seconds"
+                        id="time-seconds"
+                        inputmode="decimal"
+                        placeholder="sec"
+                    />
+                </div>
+                <div class="distance">
+                    <input
+                        type="number"
+                        name="distance-input"
+                        id="distance-input"
+                        inputmode="decimal"
+                        value="10"
+                    />
+                    <select name="distance-unit" id="distance-unit">
+                        <option value="miles">miles</option>
+                        <option value="kilometers">kilometers</option>
+                    </select>
+                </div>
+                <div class="pace triple-number">
+                    <input
+                        type="number"
+                        name="pace-hours"
+                        id="pace-hours"
+                        inputmode="decimal"
+                        placeholder="hr"
+                    />
+                    <span class="colon">:</span>
+                    <input
+                        type="number"
+                        name="pace-minutes"
+                        id="pace-minutes"
+                        inputmode="decimal"
+                        placeholder="min"
+                    />
+                    <span class="colon">:</span>
+                    <input
+                        type="number"
+                        name="pace-seconds"
+                        id="pace-seconds"
+                        inputmode="decimal"
+                        placeholder="sec"
+                    />
+                    <select name="pace-unit" id="pace-unit">
+                        <option value="per-mile">per mile</option>
+                        <option value="per-kilometer">per kilometer</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="distance">
-            <input
-                type="number"
-                name="distance-input"
-                id="distance-input"
-                inputmode="decimal"
-                value="10"
-            />
-            <select name="distance-unit" id="distance-unit">
-                <option value="miles">miles</option>
-                <option value="kilometers">kilometers</option>
-            </select>
-        </div>
-        <div class="pace">
-            <input
-                type="number"
-                name="pace-hours"
-                id="pace-hours"
-                inputmode="decimal"
-            />:
-            <input
-                type="number"
-                name="pace-minutes"
-                id="pace-minutes"
-                inputmode="decimal"
-            />:
-            <input
-                type="number"
-                name="pace-seconds"
-                id="pace-seconds"
-                inputmode="decimal"
-            />
-            <select name="pace-unit" id="pace-unit">
-                <option value="/mile">/mile</option>
-                <option value="/kilometer">/kilometer</option>
-            </select>
-        </div>
+
         <div id="mh-signature"></div>
     </body>
 </html>

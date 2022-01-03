@@ -1,13 +1,17 @@
 console.log("pacing.app");
 
 let time = document.querySelector(".time");
-let timeChildren = Array.from(time.children);
+let timeChildren = Array.from(time.children).filter(
+    (element) => !element.classList.contains("colon")
+);
 
 let distance = document.querySelector(".distance");
 let [distanceInput, distanceUnit] = distance.children;
 
 let pace = document.querySelector(".pace");
-let paceChildren = Array.from(pace.children).slice(0, -1);
+let paceChildren = Array.from(pace.children)
+    .slice(0, -1)
+    .filter((element) => !element.classList.contains("colon"));
 let paceUnit = document.querySelector("#pace-unit");
 
 function divmod(numerator, denominator) {
@@ -51,7 +55,7 @@ function calculateTimeFromPace(pace, distance) {
 }
 
 function convertDistanceUnits(value, to) {
-    if (to == "kilometers" || to == "/kilometer") {
+    if (to == "kilometers" || to == "per-kilometer") {
         return value * 0.621371;
     } else {
         return value;
@@ -59,7 +63,7 @@ function convertDistanceUnits(value, to) {
 }
 
 function convertPaceUnits(value, to) {
-    if (to == "kilometers" || to == "/kilometer") {
+    if (to == "kilometers" || to == "per-kilometer") {
         return value * 1.60934;
     } else {
         return value;
@@ -91,6 +95,7 @@ function updateDOM(metric, inputChildren, outputChildren, distanceInputValue) {
 }
 
 document.addEventListener("input", (event) => {
+    console.log(event);
     let distanceInputValue = distanceInput.value;
     let distanceUnitValue = distanceUnit.value;
     let paceUnitValue = paceUnit.value;
@@ -101,10 +106,12 @@ document.addEventListener("input", (event) => {
     }
 
     let targetParentElement = event.target.parentElement;
+    console.log(event.target);
+    console.log(targetParentElement);
 
     if (
-        targetParentElement.className == "time" ||
-        (targetParentElement.className == "pace" &&
+        targetParentElement.className.includes("time") ||
+        (targetParentElement.className.includes("pace") &&
             event.target.id != "pace-unit")
     ) {
         event.target.value = limitInputLength(event.target.value, 2);
@@ -121,12 +128,12 @@ document.addEventListener("input", (event) => {
     if (event.target.id == "pace-unit") {
         updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
     } else if (
-        targetParentElement.className == "distance" ||
-        targetParentElement.className == "time"
+        targetParentElement.className.includes("distance") ||
+        targetParentElement.className.includes("time")
     ) {
         updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
     } else if (
-        targetParentElement.className == "pace" &&
+        targetParentElement.className.includes("pace") &&
         event.target.id != "pace-unit"
     ) {
         updateDOM("time", paceChildren, timeChildren, distanceInputValue);
