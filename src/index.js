@@ -1,5 +1,3 @@
-console.log("pacing.app");
-
 let time = document.querySelector(".time");
 let timeChildren = Array.from(time.children).filter(
     (element) => !element.classList.contains("colon")
@@ -96,7 +94,6 @@ function updateDOM(metric, inputChildren, outputChildren, distanceInputValue) {
 }
 
 document.addEventListener("input", (event) => {
-    console.log(event);
     let distanceInputValue = distanceInput.value;
     let distanceUnitValue = distanceUnit.value;
     let paceUnitValue = paceUnit.value;
@@ -107,8 +104,6 @@ document.addEventListener("input", (event) => {
     }
 
     let targetParentElement = event.target.parentElement;
-    console.log(event.target);
-    console.log(targetParentElement);
 
     if (
         targetParentElement.className.includes("time") ||
