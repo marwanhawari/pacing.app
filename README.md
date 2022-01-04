@@ -3,7 +3,7 @@
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="prettier"/>
-  <img src="https://img.shields.io/github/license/marwanhawari/pkgfinder?color=blue" alt="license"/>
+  <img src="https://img.shields.io/github/license/marwanhawari/pacing.app?color=blue" alt="license"/>
 </p>
 
 # Description
