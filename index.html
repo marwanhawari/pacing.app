@@ -5,6 +5,24 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>pacing.app</title>
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="../favicon/site.webmanifest" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -21,9 +39,12 @@
     </head>
     <body>
         <div class="body-content">
-            <div class="main-content">
+            <div id="title-container">
                 <h1 id="title">pacing.app</h1>
-                <div class="time triple-number">
+            </div>
+            <div class="main-content">
+                <div id="time-label" class="label">Time</div>
+                <div class="time calc-container">
                     <input
                         type="number"
                         name="time-hours"
@@ -48,7 +69,8 @@
                         placeholder="sec"
                     />
                 </div>
-                <div class="distance">
+                <div id="distance-label" class="label">Distance</div>
+                <div class="distance calc-container">
                     <input
                         type="number"
                         name="distance-input"
@@ -56,12 +78,13 @@
                         inputmode="decimal"
                         value="10"
                     />
-                    <select name="distance-unit" id="distance-unit">
-                        <option value="miles">miles</option>
-                        <option value="kilometers">kilometers</option>
-                    </select>
                 </div>
-                <div class="pace triple-number">
+                <select name="distance-unit" id="distance-unit">
+                    <option value="miles">miles</option>
+                    <option value="kilometers">kilometers</option>
+                </select>
+                <div id="pace-label" class="label">Pace</div>
+                <div class="pace calc-container">
                     <input
                         type="number"
                         name="pace-hours"
@@ -85,11 +108,11 @@
                         inputmode="decimal"
                         placeholder="sec"
                     />
-                    <select name="pace-unit" id="pace-unit">
-                        <option value="per-mile">per mile</option>
-                        <option value="per-kilometer">per kilometer</option>
-                    </select>
                 </div>
+                <select name="pace-unit" id="pace-unit">
+                    <option value="per-mile">per mile</option>
+                    <option value="per-kilometer">per kilometer</option>
+                </select>
             </div>
         </div>
 
