@@ -9,9 +9,9 @@ describe("pacing.app tests", () => {
         cy.get(".time").should("have.length", 1);
         cy.get(".time").children().should("have.length", 5);
         cy.get(".distance").should("have.length", 1);
-        cy.get(".distance").children().should("have.length", 2);
+        cy.get(".distance").children().should("have.length", 1);
         cy.get(".pace").should("have.length", 1);
-        cy.get(".pace").children().should("have.length", 6);
+        cy.get(".pace").children().should("have.length", 5);
     });
 
     it("Input a time", () => {

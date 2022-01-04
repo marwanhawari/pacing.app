@@ -5,13 +5,14 @@ let timeChildren = Array.from(time.children).filter(
     (element) => !element.classList.contains("colon")
 );
 
-let distance = document.querySelector(".distance");
-let [distanceInput, distanceUnit] = distance.children;
+// let distance = document.querySelector(".distance");
+let distanceInput = document.querySelector("#distance-input");
+let distanceUnit = document.querySelector("#distance-unit");
 
 let pace = document.querySelector(".pace");
-let paceChildren = Array.from(pace.children)
-    .slice(0, -1)
-    .filter((element) => !element.classList.contains("colon"));
+let paceChildren = Array.from(pace.children).filter(
+    (element) => !element.classList.contains("colon")
+);
 let paceUnit = document.querySelector("#pace-unit");
 
 function divmod(numerator, denominator) {
@@ -129,6 +130,7 @@ document.addEventListener("input", (event) => {
         updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
     } else if (
         targetParentElement.className.includes("distance") ||
+        event.target.id == "distance-unit" ||
         targetParentElement.className.includes("time")
     ) {
         updateDOM("pace", timeChildren, paceChildren, distanceInputValue);
