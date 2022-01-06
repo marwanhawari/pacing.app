@@ -120,6 +120,7 @@ body:not(.dark) #toggle-light-mode {
 
 .colon {
     font-size: 1.5rem;
+    color: var(--text-color);
 }
 
 .label {
