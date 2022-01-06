@@ -2,6 +2,7 @@
   <img width=20% height=auto src="https://github.com/marwanhawari/pacing.app/raw/main/assets/pacingapp.png" alt="pacing.app icon"/>
 </p>
 <p align="center">
+  <img src="https://github.com/marwanhawari/pacing.app/actions/workflows/release.yml/badge.svg" alt="build status"/>
   <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg" alt="prettier"/>
   <img src="https://img.shields.io/github/license/marwanhawari/pacing.app?color=blue" alt="license"/>
 </p>
