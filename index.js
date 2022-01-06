@@ -136,3 +136,19 @@ document.addEventListener("input", (event) => {
         updateDOM("time", paceChildren, timeChildren, distanceInputValue);
     }
 });
+
+let colorSchemeButton = document.querySelector("#color-scheme-button");
+let bodyClasses = document.body.classList;
+
+// Toggle color scheme
+colorSchemeButton.addEventListener("click", () => {
+    if (bodyClasses.contains("dark")) {
+        // Turn off dark mode
+        bodyClasses.remove("dark");
+        localStorage.setItem("colorScheme", "light");
+    } else {
+        // Turn on dark mode
+        bodyClasses.add("dark");
+        localStorage.setItem("colorScheme", "dark");
+    }
+});

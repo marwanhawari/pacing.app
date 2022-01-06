@@ -1,11 +1,21 @@
 :root {
-    --global-background: hsl(240, 11%, 96%);
+    --page-background: hsl(0, 0%, 100%);
+    --content-background: hsl(0, 0%, 94%);
+    --text-color: hsl(0, 0%, 0%);
+    --color-transition-time: 200ms;
+    --color-transition-style: linear;
+}
+
+.dark {
+    --page-background: hsl(0, 0%, 17%);
+    --content-background: hsl(0, 0%, 27%);
+    --text-color: hsl(0, 0%, 60%);
 }
 
 /* Global styling */
 * {
     font-family: "Outfit", sans-serif;
-    background-color: white;
+    background-color: var(--page-background);
 }
 
 /* Hide the arrows on the number inputs */
@@ -52,6 +62,30 @@ input[type="number"] {
     }
 }
 
+/* Display sun icon when it's dark mode and remove the moon icon */
+body.dark #toggle-light-mode {
+    display: block;
+}
+body.dark #toggle-dark-mode {
+    display: none;
+}
+
+/* Display the moon icon when it's light mode and remove the sun icon */
+body:not(.dark) #toggle-dark-mode {
+    display: block;
+}
+body:not(.dark) #toggle-light-mode {
+    display: none;
+}
+
+.toggle-color-scheme {
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: transparent;
+    font-size: 2.2rem;
+    user-select: none;
+}
+
 .main-content {
     display: grid;
     grid-template-columns: 0.1fr 1fr 0.1fr;
@@ -67,11 +101,12 @@ input[type="number"] {
     border-radius: 2rem;
     box-shadow: 3px 3px 4px 0.5px;
     padding: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .main-content,
 .main-content *:not(input, select) {
-    background: var(--global-background);
+    background: var(--content-background);
 }
 
 .calc-container {
@@ -90,6 +125,7 @@ input[type="number"] {
     align-self: center;
     justify-self: center;
     font-size: 1.25rem;
+    color: var(--text-color);
 }
 
 .time {
@@ -124,7 +160,8 @@ input[type="number"] {
 input {
     all: unset;
     grid-column: 2/3;
-    background-color: hsl(240, 11%, 98%);
+    color: var(--text-color);
+    background-color: var(--page-background);
     border-color: hsl(0, 0%, 0%);
     border-style: solid;
     border-width: 0.13rem;
@@ -135,16 +172,15 @@ input {
     padding: 0.2rem;
     padding-right: 0.5rem;
     outline: none;
-    transition: box-shadow 0.15s linear;
 }
 
 input:focus {
     box-shadow: 0px 0px 4px 0.5px black;
-    transition: box-shadow 0.125s linear;
 }
 
 input::placeholder {
     opacity: 0.35;
+    color: var(--text-color);
 }
 
 input:focus::placeholder {
@@ -152,6 +188,7 @@ input:focus::placeholder {
 }
 
 select {
+    color: var(--text-color);
     outline: none;
     border: 2px solid black;
     border-radius: 2rem;
@@ -176,9 +213,21 @@ body {
 }
 
 #mh-signature {
-    margin-top: 3rem;
     padding-bottom: 0.5rem;
     flex: auto 0;
+}
+
+#signature-message {
+    color: var(--text-color);
+}
+#signature-path {
+    stroke: var(--text-color);
+}
+
+body *,
+body *::placeholder {
+    transition: all var(--color-transition-time) var(--color-transition-style);
+    transition-property: stroke, color, background-color, box-shadow;
 }
 
 @media screen and (max-width: 650px) {
