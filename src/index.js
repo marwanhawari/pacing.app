@@ -138,33 +138,16 @@ document.addEventListener("input", (event) => {
 });
 
 let colorSchemeButton = document.querySelector("#color-scheme-button");
-let toggleLightButton = document.querySelector("#toggle-light-mode");
-let toggleDarkButton = document.querySelector("#toggle-dark-mode");
 let bodyClasses = document.body.classList;
-
-let colorScheme = localStorage.getItem("colorScheme");
-if (colorScheme == "dark") {
-    toggleLightButton.style.display = "block";
-    toggleDarkButton.style.display = "none";
-    bodyClasses.add("dark");
-} else {
-    toggleLightButton.style.display = "none";
-    toggleDarkButton.style.display = "block";
-    bodyClasses.remove("dark");
-}
 
 // Toggle color scheme
 colorSchemeButton.addEventListener("click", () => {
     if (bodyClasses.contains("dark")) {
         // Turn off dark mode
-        toggleLightButton.style.display = "none"; // Hide sun icon
-        toggleDarkButton.style.display = "block"; // Show moon icon
         bodyClasses.remove("dark");
         localStorage.setItem("colorScheme", "light");
     } else {
         // Turn on dark mode
-        toggleLightButton.style.display = "block"; // Show sun icon
-        toggleDarkButton.style.display = "none"; // Hide moon icon
         bodyClasses.add("dark");
         localStorage.setItem("colorScheme", "dark");
     }

@@ -1,7 +1,6 @@
 :root {
     --page-background: hsl(0, 0%, 100%);
-    --content-background: hsl(0, 0%, 96%);
-    /* --content-background: hsl(240, 10%, 28%); */
+    --content-background: hsl(0, 0%, 94%);
     --text-color: hsl(0, 0%, 0%);
     --color-transition-time: 200ms;
     --color-transition-style: linear;
@@ -61,6 +60,22 @@ input[type="number"] {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* Display sun icon when it's dark mode and remove the moon icon */
+body.dark #toggle-light-mode {
+    display: block;
+}
+body.dark #toggle-dark-mode {
+    display: none;
+}
+
+/* Display the moon icon when it's light mode and remove the sun icon */
+body:not(.dark) #toggle-dark-mode {
+    display: block;
+}
+body:not(.dark) #toggle-light-mode {
+    display: none;
 }
 
 .toggle-color-scheme {
@@ -157,18 +172,15 @@ input {
     padding: 0.2rem;
     padding-right: 0.5rem;
     outline: none;
-    transition: box-shadow 0.15s linear;
 }
 
 input:focus {
     box-shadow: 0px 0px 4px 0.5px black;
-    transition: box-shadow 0.125s linear;
 }
 
 input::placeholder {
     opacity: 0.35;
     color: var(--text-color);
-    /* color: white; */
 }
 
 input:focus::placeholder {
@@ -212,10 +224,10 @@ body {
     stroke: var(--text-color);
 }
 
-body * {
-    transition: color var(--color-transition-time) var(--color-transition-style);
-    transition: background-color var(--color-transition-time)
-        var(--color-transition-style);
+body *,
+body *::placeholder {
+    transition: all var(--color-transition-time) var(--color-transition-style);
+    transition-property: stroke, color, background-color, box-shadow;
 }
 
 @media screen and (max-width: 650px) {

@@ -42,6 +42,14 @@
         <script src="index.js" defer></script>
     </head>
     <body>
+        <script>
+            let colorScheme = localStorage.getItem("colorScheme");
+            if (colorScheme == "dark") {
+                document.body.classList.add("dark");
+            } else {
+                document.body.classList.remove("dark");
+            }
+        </script>
         <div class="body-content">
             <div id="title-container">
                 <h1 id="title">pacing.app</h1>
@@ -49,14 +57,12 @@
                     <div
                         class="material-icons toggle-color-scheme"
                         id="toggle-light-mode"
-                        style="display: none"
                     >
                         light_mode
                     </div>
                     <div
                         class="material-icons toggle-color-scheme"
                         id="toggle-dark-mode"
-                        style="display: none"
                     >
                         dark_mode
                     </div>
