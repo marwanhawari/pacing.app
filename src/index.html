@@ -29,6 +29,10 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Outfit&display=swap"
         />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
         <link rel="stylesheet" href="styles.css" />
 
         <script
@@ -41,6 +45,22 @@
         <div class="body-content">
             <div id="title-container">
                 <h1 id="title">pacing.app</h1>
+                <div id="color-scheme-button">
+                    <div
+                        class="material-icons toggle-color-scheme"
+                        id="toggle-light-mode"
+                        style="display: none"
+                    >
+                        light_mode
+                    </div>
+                    <div
+                        class="material-icons toggle-color-scheme"
+                        id="toggle-dark-mode"
+                        style="display: none"
+                    >
+                        dark_mode
+                    </div>
+                </div>
             </div>
             <div class="main-content">
                 <div id="time-label" class="label">Time</div>
@@ -115,7 +135,6 @@
                 </select>
             </div>
         </div>
-
         <div id="mh-signature"></div>
     </body>
 </html>
