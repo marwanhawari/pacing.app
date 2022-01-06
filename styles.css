@@ -84,6 +84,8 @@ body:not(.dark) #toggle-light-mode {
     background-color: transparent;
     font-size: 2.2rem;
     user-select: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
 }
 
 .main-content {
@@ -118,6 +120,7 @@ body:not(.dark) #toggle-light-mode {
 
 .colon {
     font-size: 1.5rem;
+    color: var(--text-color);
 }
 
 .label {
