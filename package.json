@@ -6,7 +6,7 @@
     "scripts": {
         "format": "prettier --write --ignore-unknown '{tests,src}/**/*{.js,.ts,.html,.css,.json}'",
         "lint": "eslint src",
-        "pre-commit": "husky install && husky add .husky/pre-commit 'npm run format' && husky add .husky/pre-commit 'npm run lint'",
+        "pre-commit": "husky install",
         "dev": "nodemon server/server.js",
         "start": "nohup node server/server.js > /dev/null 2>&1 &",
         "test": "npm run start && cypress run && curl http://localhost:8080/close",
