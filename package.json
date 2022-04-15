@@ -8,8 +8,9 @@
         "lint": "eslint src",
         "pre-commit": "husky install",
         "dev": "nodemon server/server.js",
-        "start": "nohup node server/server.js > /dev/null 2>&1 &",
-        "test": "npm run start && cypress run && curl http://localhost:8080/close",
+        "start": "node server/server.js",
+        "test:start": "nohup node server/server.js > /dev/null 2>&1 &",
+        "test": "npm run test:start && cypress run && curl http://localhost:8080/close",
         "release": "gh-pages -d src"
     },
     "repository": {
