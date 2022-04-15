@@ -18,6 +18,9 @@ WORKDIR /home/app
 # Copy the source code into the Docker image
 COPY . .
 
+# Install the node modules
+RUN npm install
+
 # Expose the app's port (optional)
 EXPOSE 8080
 
