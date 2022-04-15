@@ -15,11 +15,17 @@ RUN groupadd --gid 10001 app && \
 # Switch to the user's home directory
 WORKDIR /home/app
 
-# Copy the source code into the Docker image
-COPY . .
+# Set the $HOME environment variable (to avoid permission issues during "npm install")
+ENV HOME /home/app
+
+# Copy the package into the Docker image
+COPY package.json package-lock.json ./
 
 # Install the node modules
 RUN npm install
+
+# Copy the rest of the source code
+COPY . .
 
 # Expose the app's port (optional)
 EXPOSE 8080
